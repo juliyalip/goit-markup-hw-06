@@ -45,6 +45,62 @@
         <a href="#" class="btn-start">Заказать услугу</a>
     </section>
 
+    <!-- Modalnoe okno-->
+<div class="backdrop">
+    <div class="modal">
+        <b class="modal-title">Оставьте свои данные, мы вам перезвоним</b>
+        <div class="form">
+            <form>
+                <input type="text" name="name" id="name" class="input-form" placeholder=" ">
+                <label for="name" class="label-form">Имя</label>
+                <svg width="12px" height="12px" class="icon-modal">
+                    <use href="./images/symbol-defs.svg#name"></use>
+                </svg>
+            </form>
+        </div>
+               
+         <div class="form">
+                <form>
+                     <input type="tel" name="tel" id="tel" class="input-form" placeholder=" ">
+                     <label for="tel" class="label-form">Телефон</label>
+                     <svg width="13px" height="13px" class="icon-modal">
+                         <use href="./images/symbol-defs.svg#tel"></use>
+                     </svg>
+                </form>
+            </div>
+        
+           <div class="form">
+            <form>
+                <input type="email" name="mail" id="mail" class="input-form" placeholder=" "> 
+                <label for="mail" class="label-form">Почта</label>
+                <svg width="15px" heigth="12px" class="icon-modal">
+                    <use href="./images/symbol-defs.svg#mail"></use>
+                </svg>
+            </form>
+           </div>
+        
+          <div class="form-coment">
+            <form>
+                <textarea name="coment" id="coment" class="coment" placeholder=" "></textarea>
+                <label for="coment" class="label-coment">Коментарий</label>
+            </form>
+          </div>
+             
+           <div class="dogovor">
+            <input type="checkbox" name="terms" value="terms" id="terms">
+            <label for="terms">Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></label>
+           </div>
+
+           <button type="submit">Отправить</button>
+       
+
+    </div>
+
+</div>
+
+
+
+
                      <!-- наши преимущества -->
         <section> 
             <div class="container">
@@ -323,7 +379,7 @@
         
     <div class="subscription">
         <p class="zaglawn">подпишитесь на рассылку</p>
-        <p>
+        <div>
             <form class="footer-form">
                 <input type="email" name="mail" id="mail" autocomplete="on" placeholder="E-mail" class="imput-mail">
                 <button type="submit" class="button-form">Подписаться
@@ -331,9 +387,8 @@
                         <use href="./images/symbol-defs.svg#icon-send"></use>
                     </svg>
                 </button>
-                
             </form>
-            </p>
+        </div>
     </div>
             
         
@@ -342,6 +397,23 @@
           
             <p class="copirayt">2020 | Developed by GoIT Students</p>
     </footer>
+
+    <!-- Cкрипт дл проверки в консоле-->
+    <script>
+        (() => {
+          document
+            .querySelector('.js-speaker-form')
+            .addEventListener('submit', e => {
+              e.preventDefault();
+  
+              new FormData(e.currentTarget).forEach((value, name) =>
+                console.log(`${name}: ${value}`),
+              );
+  
+              e.currentTarget.reset();
+            });
+        })();
+      </script>
 
  </body>
 </html>

@@ -13,7 +13,9 @@
     --color-adress-footer: rgba(255, 255, 255, 0.6);
     --text-fon: rgba(47, 48, 58, 0.8);  
     --color-zagolovka: #FFFFFF;
-    --color-border: #EEEEEE;}
+    --color-border: #EEEEEE;
+    --color-modalnoe-okno: rgba(0, 0, 0, 0.2)}
+
 html {box-sizing: border-box;}
 *, *::before, *::after {box-sizing: inherit;}
 
@@ -23,6 +25,120 @@ font-family: Roboto, sans-serif;
 font-size: 14px;
 background-color: var(--primery-fon);
 }
+
+/* modalnoe okno */
+
+.backdrop {position: fixed;
+top: 0; left: 0;
+width: 100%;
+height: 100%;
+z-index: 1;
+
+background-color: var(--color-modalnoe-okno);}
+
+.modal {width: 528px;
+background-color: var(--color-zagolovka);
+border-radius: 4px;
+box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12);
+position: absolute;
+top: 50%; left: 50%;
+transform: translate(-50%, -50%);
+padding: 40px;
+line-height: 1.14;
+color: var(--stile-text-color);
+}
+
+.dogovor a {color: var(--activ-text-color);
+margin-left: 3px;}
+
+.dogovor {display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+}
+
+
+.modal-title {
+    width: 100%;
+    display: inline-block;
+    font-size: 20px;
+line-height: 1.15;
+font-weight: 700;
+text-align: center;
+margin-bottom: 30px;
+color: var(--primary-text-color);}
+
+.form {position: relative; margin-bottom: 28px;}
+
+
+.form-coment {position: relative;
+    margin-bottom: 0;}
+
+
+.label-coment {position: absolute;
+top: 12px; left: 16px;
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.icon-modal {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+left: 19px;
+}
+
+.input-form:focus ~ .icon-modal {
+    fill: #2196F3;}
+
+
+.input-form {
+    width: 100%; height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    padding-left: 42px;
+    border-radius: 4px;
+    transition: solid 2000ms cubic-bezier(0.4, 0, 0.2, 1);}
+
+.coment {
+    width: 100%; height: 120px;
+    resize: none;
+padding: 12px 16px;
+border-radius: 4px;}
+
+button {
+    width: 200px; height: 50px;
+background-color: var(--activ-button-color);
+color: var(--button-text-activ);
+margin-top: 30px;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+border-radius: 4px;
+margin-bottom: 40px;
+left: 50%;
+transform: translateX(50%);}
+
+
+/* stavit label v formy i podnimaet pri focuse vverx */
+.label-form {position: absolute;
+    top: 50%;
+    left: 42px;
+    transform: translateY(-50%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+}
+
+
+.input-form:focus + .label-form, 
+.input-form:not(:placeholder-shown) + .label-form {color: #2196F3; 
+transform: translateY(-40px);}  
+
+.input-form:focus {border-color: var(--activ-button-color);}
+
+
+.coment:focus + .label-coment,
+.coment:not(:placeholder-shown) + .label-coment {color: var(--activ-button-color);
+transform: translateY(-40px);}
+    
+
+
 
 
 li {list-style: none;
@@ -238,6 +354,8 @@ line-height: 1.14;
 font-size: 14px;
 }
 
+
+
 /* komanda 4 elementa*/
 
 .komanda {background-color: var(--section-komanda-color);
@@ -294,7 +412,7 @@ fill 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 .fon-s:focus {background: var(--activ-button-color);
 fill: #FFFFFF;}
 
-/*.fon-s {fill: #AFB1B8;}*/
+
 
 
 /* postoyannue klientu */
