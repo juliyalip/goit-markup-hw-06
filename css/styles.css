@@ -196,7 +196,7 @@ position: absolute;}
 
 
 .check-label {display: flex;
-border: 1px solid grey;}
+}
 
 .checkbox:checked + .icon {background-color: var(--activ-button-color);
 border-radius: 2px;
