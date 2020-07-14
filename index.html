@@ -42,18 +42,23 @@
  <main>
     <section class="shapka">
         <h1 class="baner">Эффективные решения<br>для вашего бизнеса</h1>
-        <a href="#" class="btn-start">Заказать услугу</a>
+        <a href="#" class="btn-start" data-modal-open>Заказать услугу</a>
     </section>
 
     <!-- Modalnoe okno-->
-<div class="backdrop">
+<div class="backdrop is-hidden" data-modal>
     <div class="modal">
+        <span class="close" data-modal-close>
+            <svg class="icon-close">
+            <use href="./images/symbol-defs.svg#lose"></use>
+        </svg>
+        </span>
         <b class="modal-title">Оставьте свои данные, мы вам перезвоним</b>
         <div class="form">
             <form>
                 <input type="text" name="name" id="name" class="input-form" placeholder=" ">
                 <label for="name" class="label-form">Имя</label>
-                <svg width="12px" height="12px" class="icon-modal">
+                <svg class="icon-modal">
                     <use href="./images/symbol-defs.svg#name"></use>
                 </svg>
             </form>
@@ -73,23 +78,26 @@
             <form>
                 <input type="email" name="mail" id="mail" class="input-form" placeholder=" "> 
                 <label for="mail" class="label-form">Почта</label>
-                <svg width="15px" heigth="12px" class="icon-modal">
+                <svg class="icon-modal">
                     <use href="./images/symbol-defs.svg#mail"></use>
                 </svg>
             </form>
            </div>
         
           <div class="form-coment">
-            <form>
+            <form class="form-coment">
                 <textarea name="coment" id="coment" class="coment" placeholder=" "></textarea>
                 <label for="coment" class="label-coment">Коментарий</label>
             </form>
           </div>
              
-           <div class="dogovor">
-            <input type="checkbox" name="terms" value="terms" id="terms">
-            <label for="terms">Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a></label>
-           </div>
+          <form class="dogovor">
+            <label class="check-label">
+                <input type="checkbox" class="checkbox" name="checkbox" value="checkbox"/>
+                <span class="icon"></span>
+                Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a>
+            </label>
+          </form>
 
            <button type="submit">Отправить</button>
        
@@ -381,7 +389,7 @@
         <p class="zaglawn">подпишитесь на рассылку</p>
         <div>
             <form class="footer-form">
-                <input type="email" name="mail" id="mail" autocomplete="on" placeholder="E-mail" class="imput-mail">
+                <input type="email" name="mail" autocomplete="on" placeholder="E-mail" class="imput-mail">
                 <button type="submit" class="button-form">Подписаться
                     <svg width="24px" height="24px" class="icon-form">
                         <use href="./images/symbol-defs.svg#icon-send"></use>
@@ -414,6 +422,6 @@
             });
         })();
       </script>
-
+ <script src="./js/modal.js"></script>
  </body>
 </html>
