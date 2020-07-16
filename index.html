@@ -56,7 +56,7 @@
         <b class="modal-title">Оставьте свои данные, мы вам перезвоним</b>
         <div class="form">
             <form>
-                <input type="text" name="name" id="name" class="input-form" placeholder=" ">
+                <input type="text" name="name" id="name" class="input-form" placeholder=" " autocomplete="on">
                 <label for="name" class="label-form">Имя</label>
                 <svg class="icon-modal">
                     <use href="./images/symbol-defs.svg#name"></use>
@@ -66,7 +66,7 @@
                
          <div class="form">
                 <form>
-                     <input type="tel" name="tel" id="tel" class="input-form" placeholder=" ">
+                     <input type="tel" name="tel" id="tel" class="input-form" placeholder=" " autocomplete="on">
                      <label for="tel" class="label-form">Телефон</label>
                      <svg width="13px" height="13px" class="icon-modal">
                          <use href="./images/symbol-defs.svg#tel"></use>
@@ -76,7 +76,7 @@
         
            <div class="form">
             <form>
-                <input type="email" name="mail" id="mail" class="input-form" placeholder=" "> 
+                <input type="email" name="mail" id="mail" class="input-form" placeholder=" " autocomplete="on"> 
                 <label for="mail" class="label-form">Почта</label>
                 <svg class="icon-modal">
                     <use href="./images/symbol-defs.svg#mail"></use>
@@ -86,20 +86,21 @@
         
           <div class="form-coment">
             <form class="form-coment">
-                <textarea name="coment" id="coment" class="coment" placeholder=" "></textarea>
+                <textarea name="coment" id="coment" class="coment" placeholder=" " Class="modal-textarea"></textarea>
                 <label for="coment" class="label-coment">Коментарий</label>
             </form>
           </div>
              
           <form class="dogovor">
-            <label class="check-label">
-                <input type="checkbox" class="checkbox" name="checkbox" value="checkbox"/>
-                <span class="icon"></span>
+           <!--<label class="check-label">--> 
+                <input type="checkbox" class="checkbox" name="checkbox" value="checkbox" id="checkbox"/>
+               <!-- <span class="icon"></span> -->
+               <label for="checkbox" class="check-label">
                 Соглашаюсь с рассылкой и принимаю <a href="">Условия договора</a>
             </label>
           </form>
 
-           <button type="submit">Отправить</button>
+           <button type="submit" class="modal-batton">Отправить</button>
        
 
     </div>
@@ -387,16 +388,16 @@
         
     <div class="subscription">
         <p class="zaglawn">подпишитесь на рассылку</p>
-        <div>
-            <form class="footer-form">
+        <div class="footer-form">
+            <form>
                 <input type="email" name="mail" autocomplete="on" placeholder="E-mail" class="imput-mail">
+                </form>
                 <button type="submit" class="button-form">Подписаться
                     <svg width="24px" height="24px" class="icon-form">
                         <use href="./images/symbol-defs.svg#icon-send"></use>
                     </svg>
                 </button>
-            </form>
-        </div>
+           </div>
     </div>
             
         

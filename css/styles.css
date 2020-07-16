@@ -37,8 +37,13 @@ z-index: 1;
 background-color: var(--color-modalnoe-okno);
 }
 
-.is-hidden {opacity: 0;
+
+
+
+.is-hidden {
+    opacity: 0;
 pointer-events: none;
+visibility: hidden;
 }
 
 
@@ -63,8 +68,8 @@ cursor: pointer;
 }
 
 .close:hover, 
-.close:focus {
-fill: #2196F3;}
+.close:focus   {
+    fill: #2196F3;}
 
 .modal {
     position: absolute;
@@ -77,8 +82,6 @@ transform: translate(-50%, -50%);
 padding: 40px;
 line-height: 1.14;
 color: var(--stile-text-color);
-max-height: calc(100%-30px);
-max-width: calc(100% -30px);
 overflow: auto;
 }
 
@@ -88,7 +91,9 @@ overflow: auto;
 .dogovor a {color: var(--activ-text-color);
 margin-left: 3px;}
 
-.dogovor {display: flex;
+.dogovor {
+  
+    display: flex;
 justify-content: center;
 align-items: center;
 margin-top: 20px;
@@ -129,15 +134,23 @@ left: 19px;
 
 form:focus {border-color: var(--activ-button-color); outline: none; }
 
+/* убираем заданные браузером стили для бордера и меняем их при наведении*/
+
+textarea:focus {outline: none; border-color: var(--activ-button-color);}
+input:focus {outline: none; border-color: var(--activ-button-color);}
+
 
 
 .input-form {
     width: 100%; height: 40px;
     border-color: 1px solid rgba(33, 33, 33, 0.2);
     padding-left: 42px;
-    border-radius: 4px;}
+    border-radius: 4px;
+   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-
+.modal-textarea {
+     border-color: var(--activ-button-color);}
 
 .coment {
     width: 100%; height: 120px;
@@ -145,9 +158,10 @@ form:focus {border-color: var(--activ-button-color); outline: none; }
 padding: 12px 16px;
 border-radius: 4px;
 border: 1px solid rgba(33, 33, 33, 0.2);
+transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-button {
+.modal-batton {
     width: 200px; height: 50px;
 background-color: var(--activ-button-color);
 color: var(--button-text-activ);
@@ -175,37 +189,57 @@ transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .input-form:not(:placeholder-shown) + .label-form {
 transform: translate(-30px, -40px);}  
 
-.input-form:focus {border-color: var(--activ-button-color);}
-
 
 .coment:focus + .label-coment,
 .coment:not(:placeholder-shown) + .label-coment {color: var(--activ-button-color);
 transform: translateY(-40px);}
     
 
-.icon {display: block;
+/*.icon {display: block;
     margin-right: 8px;
     width: 16px; height: 15px;
 border: 1px solid var(--primary-text-color);
 transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-transform:  250ms cubic-bezier(0.4, 0, 0.2, 1); }
+transform:  250ms cubic-bezier(0.4, 0, 0.2, 1); }-------------------*/
 
+
+/* Скрывает стили от браузера на чекбоксе */
 .checkbox {-webkit-appearance: none;
 -moz-appearance: none;
 appearance: none;
-position: absolute;}
+position: absolute;
+}
 
 
 
 .check-label {display: flex;
-}
+margin-left: 52px;
+ }
 
-.checkbox:checked + .icon {background-color: var(--activ-button-color);
+/*.checkbox:checked + .icon {background-color: var(--activ-button-color);
 border-radius: 2px;
 background-image: url(../images/icon.svg);
 border-color: var(--activ-button-color);
 background-size: contain;
+}---------------------------------------------*/
+
+.check-label::after {position: absolute;
+    left: 52px;
+    content: " ";
+    display: block;
+    margin-right: 8px;
+    width: 16px; height: 15px;
+border: 1px solid var(--primary-text-color);
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.checkbox:checked + .check-label::after {background-color: var(--activ-button-color);
+    border-radius: 2px;
+    background-image: url(../images/icon.svg);
+    border-color: var(--activ-button-color);
+    background-size: contain;
+    }
+
 
 
 
@@ -584,7 +618,7 @@ text-align: center;
 
 /*  subscription  footer*/
 
-.footer-form {
+.footer-form {border: 1px solid white;
     display: flex;
     justify-content: center;
     align-items: center;}
@@ -594,13 +628,15 @@ text-align: center;
 flex-direction: column;
 margin-left: 94px;}
 
-.button-form {display: flex;
-    width: 200px; height: 50px;
+.button-form {
+        display: flex;
+        width: 200px;
+        height: 50px;
     font-size: 16px;
     font-weight: 700;
 color: var(--button-text-activ) ;
  background-color: var(--activ-button-color);
- border: 1px solid var(--activ-button-color);
+ border-color: var(--activ-button-color);
 border-radius: 4px; 
 align-items: center;
 justify-content: center;
@@ -618,6 +654,8 @@ border-radius: 4px;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 margin-right: 12px;
 color: var(--button-text-activ);
+padding-left: 16px;
+padding-right: 16px;
 }
 
 .icon-form {margin-left: 10px;}
