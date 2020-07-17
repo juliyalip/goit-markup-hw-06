@@ -604,7 +604,7 @@ text-align: center;
 
 /*  subscription  footer*/
 
-.footer-form {border: 1px solid white;
+.footer-form {
     display: flex;
     justify-content: center;
     align-items: center;}
