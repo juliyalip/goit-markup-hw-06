@@ -33,8 +33,9 @@ top: 0; left: 0;
 width: 100%;
 height: 100%;
 z-index: 1;
-
 background-color: var(--color-modalnoe-okno);
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 
@@ -44,7 +45,7 @@ background-color: var(--color-modalnoe-okno);
     opacity: 0;
 pointer-events: none;
 visibility: hidden;
-}
+transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);}
 
 
 .close {
@@ -67,8 +68,8 @@ cursor: pointer;
     fill: #000000; 
 }
 
-.close:hover, 
-.close:focus   {
+.icon-close:hover, 
+.icon-close:focus   {
     fill: #2196F3;}
 
 .modal {
@@ -84,11 +85,8 @@ line-height: 1.14;
 color: var(--stile-text-color);
 max-height: calc(100% - 30px);
 max-width: calc(100% - 30px);
-
 overflow: auto;
 }
-
-
 
 
 .dogovor a {color: var(--activ-text-color);
@@ -198,13 +196,6 @@ transform: translate(-30px, -40px);}
 transform: translateY(-40px);}
     
 
-/*.icon {display: block;
-    margin-right: 8px;
-    width: 16px; height: 15px;
-border: 1px solid var(--primary-text-color);
-transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-transform:  250ms cubic-bezier(0.4, 0, 0.2, 1); }-------------------*/
-
 
 /* Скрывает стили от браузера на чекбоксе */
 .checkbox {-webkit-appearance: none;
@@ -216,18 +207,12 @@ position: absolute;
 
 
 .check-label {display: flex;
-margin-left: 52px;
+margin-left: 37px;
  }
 
-/*.checkbox:checked + .icon {background-color: var(--activ-button-color);
-border-radius: 2px;
-background-image: url(../images/icon.svg);
-border-color: var(--activ-button-color);
-background-size: contain;
-}---------------------------------------------*/
 
 .check-label::after {position: absolute;
-    left: 52px;
+    left: 54px;
     content: " ";
     display: block;
     margin-right: 8px;
@@ -242,8 +227,6 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     border-color: var(--activ-button-color);
     background-size: contain;
     }
-
-
 
 
 
