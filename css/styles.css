@@ -598,6 +598,7 @@ padding-left: 0;}
 .copirayt {
        color: var(--stile-text-color); 
 text-align: center;
+margin-bottom: 0;
 }
 
 /*  subscription  footer*/
