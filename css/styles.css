@@ -1,6 +1,6 @@
 :root {
     --primary-brand_color: #4d5ae5;
-    --press-active-color: #404bbf;
+    --press-active-color: #404bbf;  
     --dark-bg-color: #2e2f42;
     --primary-background-color: #ffffff;
     --background-light-color: #f4f4fd;
@@ -128,10 +128,6 @@ button {
     align-items: center;
 }
 
-.burger-btn {
-    display: none;
-}
-
 .menu-mobile {
     display: none;
 }
@@ -148,6 +144,13 @@ button {
 .nav-link {
     color: #2e2f42;
 }
+
+  .burger-btn {
+        display: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;      
+    }
 
 @media screen and (max-width: 767.98px) {
     .header {
@@ -175,13 +178,11 @@ button {
     }
 
     .burger-btn {
-        padding: 0;
-        border: none;
-        background-color: transparent;
         display: flex;
         align-items: center;
-        justify-content: center;
-        z-index: 15;
+       justify-content: center;
+        padding: 0;
+       z-index: 15;   
     }
 
     .burger-btn.is-open {
@@ -199,7 +200,6 @@ button {
     }
 
     .address-list {
-
         gap: 24px;
         font-size: 20px;
         line-height: 1.2;
@@ -208,7 +208,7 @@ button {
     }
 
     .menu-mobile.is-open .nav-link.current {
-        color: #404bbf;
+        color: var(--press-active-color);
     }
 
 }
@@ -241,22 +241,6 @@ button {
 }
 
 
-@media screen and (min-width: 768px) {
-
-    .nav-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .menu-mobile .social-media-list {
-        display: none;
-    }
-
-    .header-logo {
-        margin-right: 120px;
-    }
-}
-
 .logo {
     color: var(--primary-brand_color);
     font-family: 'Raleway', sans-serif;
@@ -279,9 +263,7 @@ button {
 @media screen and (min-width: 768px) {
     .header {
         padding-top: 16px;
-
     }
-
 
     .header-logo {
         margin-right: 120px;
@@ -292,14 +274,20 @@ button {
         align-items: center;
     }
 
-    .address-nav {
-        margin-left: auto;
-    }
-
+  
     .nav-list {
         display: flex;
         align-items: center;
         gap: 40px;
+    }
+
+    .address-list {
+        display: flex;
+
+        flex-direction: column;
+        gap: 12px;
+        font-style: normal;
+        letter-spacing: 0.02em;
     }
 
     .contact-link {
@@ -350,26 +338,24 @@ button {
     .menu-mobile {
         display: flex;
         width: 100%;
-
     }
 
     .address-nav {
         margin-left: auto;
     }
 
-    .address-list {
-        display: flex;
-
-        flex-direction: column;
-        gap: 12px;
-        font-style: normal;
-        letter-spacing: 0.02em;
-    }
-
     .menu-mobile .social-media-list {
         display: none;
     }
 
+    .nav-container {
+        display: flex;
+        align-items: center;
+    }
+
+     .header-logo {
+        margin-right: 120px;
+    }
 }
 
 @media screen and (min-width: 1158px) {
