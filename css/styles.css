@@ -115,48 +115,146 @@ button {
 /* ---------header---------------- */
 
 .header {
+    position: relative;
     border-bottom: 1px solid var(--border-bottom-color);
     box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16), 0px 1px 6px rgba(46, 47, 66, 0.08);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.nav-list,
-.address-nav {
-    display: none;
 }
 
 .burger-btn {
-    padding: 0;
-    border: none;
-    background-color: transparent;
+    display: none;
 }
 
-@media screen and (min-width: 768px) {
-    .burger-btn {
-        display: none;
+.menu-mobile {
+    display: none;
+}
+
+.contact-link {
+    color: #434455;
+}
+
+.address-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    color: #2e2f42;
+}
+
+@media screen and (max-width: 767.98px) {
+    .header {
+        max-width: 320px;
     }
 
-    .address-nav {
-        font-style: normal;
-        letter-spacing: 0.02em;
-        display: block;
+    .container-header {
+        justify-content: space-between;
     }
+
+    .menu-mobile.is-open {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -1px;
+        width: 322px;
+        height: 100dvh;
+        z-index: 10;
+        background-color: var(--primary-background-color);
+        padding: 72px 16px 40px;
+    }
+
+    .menu-mobile.is-open .social-media-list {
+        gap: 40px;
+    }
+
+    .burger-btn {
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 15;
+    }
+
+    .burger-btn.is-open {
+        border: 1px solid #e7e9fc;
+        border-radius: 50%;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 168px;
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .address-list {
+
+        gap: 24px;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        margin-bottom: 48px;
+    }
+
+    .menu-mobile.is-open .nav-link.current {
+        color: #404bbf;
+    }
+
+}
+
+.menu-icon {
+    display: block;
+    fill: #2f2f37;
+}
+
+.burger-btn .close-icon {
+    display: none;
+}
+
+.burger-btn.is-open {
+    width: 24px;
+    height: 24px;
+}
+
+.burger-btn.is-open .close-icon {
+    display: block;
+}
+
+.burger-btn.is-open .menu-icon {
+    width: 8px;
+    height: 8px;
+}
+
+.burger-btn.is-open .burger-icon {
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) {
 
     .nav-container {
         display: flex;
         align-items: center;
     }
-}
 
-.burger-icon {
-    display: block;
-    fill: #2f2f37;
+    .menu-mobile .social-media-list {
+        display: none;
+    }
+
+    .header-logo {
+        margin-right: 120px;
+    }
 }
 
 .logo {
@@ -175,12 +273,27 @@ button {
 
 .header-logo {
     padding: 16px 0;
-    display: block;
+    display: inline-flex;
 }
 
 @media screen and (min-width: 768px) {
+    .header {
+        padding-top: 16px;
+
+    }
+
+
     .header-logo {
         margin-right: 120px;
+    }
+
+    .menu-mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    .address-nav {
+        margin-left: auto;
     }
 
     .nav-list {
@@ -190,8 +303,11 @@ button {
     }
 
     .contact-link {
+        font-size: 12px;
+        letter-spacing: 0.04em;
         color: inherit;
         transition: color var(--timing-function);
+
     }
 
     nav .nav-link:hover,
@@ -231,11 +347,29 @@ button {
         color: var(--press-active-color);
     }
 
+    .menu-mobile {
+        display: flex;
+        width: 100%;
+
+    }
+
+    .address-nav {
+        margin-left: auto;
+    }
+
     .address-list {
         display: flex;
+
         flex-direction: column;
         gap: 12px;
+        font-style: normal;
+        letter-spacing: 0.02em;
     }
+
+    .menu-mobile .social-media-list {
+        display: none;
+    }
+
 }
 
 @media screen and (min-width: 1158px) {
@@ -251,6 +385,11 @@ button {
         flex-direction: row;
         gap: 40px;
     }
+
+    .contact-link {
+        font-size: 16px;
+        letter-spacing: 0.02em;
+    }
 }
 
 /* ---------hero section---------------- */
@@ -261,7 +400,7 @@ button {
     padding-top: 72px;
     padding-bottom: 72px;
     text-align: center;
-    max-width: 320px;
+    max-width: 1440px;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
             rgba(46, 47, 66, 0.7)),
         url('../images/people_office.jpg');
@@ -304,11 +443,19 @@ button {
     background-color: var(--press-active-color);
 }
 
+
+
 @media (min-resolution: 192dpi) {
     .hero-section {
         background-image: linear-gradient(rgba(46, 47, 66, 0.7),
                 rgba(46, 47, 66, 0.7)),
             url('../images/people_office_2x.jpg');
+    }
+}
+
+@media screen and (min-width: 320px){
+    .hero-section{
+        max-width: 320px;
     }
 }
 
@@ -391,6 +538,8 @@ button {
         margin-right: 24px;
     }
 
+
+
     .feature-item:nth-child(2n) {
         margin-right: 0;
     }
@@ -398,6 +547,8 @@ button {
     .feature-item:nth-last-child(-n + 2) {
         margin-bottom: 0;
     }
+
+
 }
 
 @media screen and (min-width: 1158px) {
@@ -407,6 +558,7 @@ button {
     }
 
     .feature-item {
+        font-weight: 400;
         flex-basis: calc((100% - 72px) / 4);
     }
 
@@ -442,6 +594,9 @@ button {
 .team-list {
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
 }
 
 .team-item {
@@ -455,7 +610,7 @@ button {
 
 @media screen and (min-width: 768px) {
     .team-list {
-        display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
         gap: 64px 24px;
     }
@@ -469,7 +624,7 @@ button {
     }
 
     .feature-item .subtitle {
-        text-align: center;
+        text-align: left;
     }
 }
 
@@ -490,7 +645,7 @@ button {
 .team-section .subtitle {
     text-transform: capitalize;
     font-size: 20px;
-    padding-bottom: 8px;
+
 }
 
 .team-section .team-list {
@@ -556,6 +711,10 @@ button {
         flex-basis: calc((100% - 72px) / 4);
     }
 
+    .text-features {
+        font-weight: 400;
+    }
+
 }
 
 /* -----Portfolio ---------*/
@@ -598,8 +757,8 @@ button {
     border-top: none;
 }
 
-.text-block>.subtitle {
-    text-align: start;
+.portfolio-item .subtitle {
+    text-align: left;
     font-size: 20px;
 }
 
